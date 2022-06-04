@@ -21,6 +21,7 @@ public class InsertionSort {
 
 	}
 
+	//function to sort an array using Insertion Sort
 	public static void insertionSort(int[] arr) {
 		for(int i=1;i<arr.length;i++) {
 			int key=arr[i];
