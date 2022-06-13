@@ -41,8 +41,7 @@ public class SecondThirdMax {
 				}
 			}
 		}
-		return third_largest;
-		
+		return third_largest;	
 	}
 	
 	
