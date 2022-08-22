@@ -69,6 +69,40 @@ public class BinaryTree {
 		}
 	 
 	
+	 //Method to find the height of Binary Tree
+	 static int heightBinaryTree(Node tree) {
+		 if(tree==null) return 0;
+		 
+		 int leftHeight=heightBinaryTree(tree.leftChild);
+		 int rightHeight=heightBinaryTree(tree.rightChild);
+		 
+		 return Math.max(leftHeight, rightHeight)+1;
+	 }
+	 
+	 //Method to find the total number of nodes in the Binary Tree
+	 static int sizeOfBinaryTree(Node tree) {
+		 if(tree==null) return 0;
+		 int leftSize=sizeOfBinaryTree(tree.leftChild);
+		 int rightSize=sizeOfBinaryTree(tree.rightChild);
+		 
+		 return (leftSize+rightSize)+1;
+	 }
+	 
+	 //Method to return the max element in Tree
+	 static int maxElementInBinaryTree(Node tree) {
+		 if(tree==null) return Integer.MIN_VALUE;
+		  
+		 return Math.max(tree.data, Math.max(maxElementInBinaryTree(tree.leftChild), maxElementInBinaryTree(tree.rightChild)));
+	 }
+	 
+	 //Method to return the min element in Tree
+	 static int minElementInBinaryTree(Node tree) {
+		 if(tree==null) return Integer.MAX_VALUE;
+		  
+		 return Math.min(tree.data, Math.min(minElementInBinaryTree(tree.leftChild), minElementInBinaryTree(tree.rightChild)));
+	 }
+	 
+	 
 	public static void main(String[] args) {
 		
 		Node tree=createBinaryTree();
@@ -78,6 +112,10 @@ public class BinaryTree {
 		preOrderTraversal(tree);
 		System.out.print("\nPostOrder Traversal : ");
 		postOrderTraversal(tree);
+		System.out.println("\nHeight of Binary Tree : "+heightBinaryTree(tree));
+		System.out.println("Total Nodes present in Binary Tree : "+sizeOfBinaryTree(tree));
+		System.out.println("Max Element in tree : "+maxElementInBinaryTree(tree));
+		System.out.println("Min Element in tree : "+minElementInBinaryTree(tree));
 		
 
 	}
