@@ -11,8 +11,25 @@ public class SingleLinkedList {
 		}
 	}
 	
-	
+	//Function to insert an element at beginning
+	public static Node insertBegin(Node head,int data) {
+		Node newNode=new Node(data);
+		newNode.next=head;
+		return newNode;
+	}
 
+	//function to insert an element at Last
+	public static Node insertLast(Node head,int data) {
+		Node newNode=new Node(data);
+		if(head==null)
+			return newNode;
+		Node temp=head;
+		while(temp.next!=null)
+			temp=temp.next;
+		temp.next=newNode;
+		return head;
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Node n1=new Node(1);
