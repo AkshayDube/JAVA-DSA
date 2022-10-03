@@ -38,7 +38,6 @@ public class SingleLinkedList {
 		temp.next=newNode;
 		return head;
 	}
-
 	//function to delete the first element in the Linked List
 	public static Node deleteHead(Node head) {
 		if(head==null)
@@ -57,7 +56,7 @@ public class SingleLinkedList {
 		temp.next=null;
 		return head;
 	}
-	
+
 	public static void main(String[] args) {
 		Node head=insertBegin(null, 10);
 		head=insertLast(head, 20);
