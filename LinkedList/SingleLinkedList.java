@@ -73,6 +73,7 @@ public class SingleLinkedList {
 		return head;
 	}
 	
+	//function to delete an element at the specified position
 	public static Node deleteAtPosition(Node head,int position) {
 		if(position==1)
 			return head.next;
@@ -83,6 +84,37 @@ public class SingleLinkedList {
 			return head;
 		temp.next=temp.next.next;
 		return head;
+	}
+	
+	//function to reverse Singly Linked List
+	public static Node reverseLinkedList(Node head) {
+		if(head==null)
+			return head;
+		Node current=head;
+		Node previousHolder=head;
+		Node nextHolder=head.next;
+		while(nextHolder!=null) {
+			current=nextHolder;
+			nextHolder=nextHolder.next;
+			current.next=previousHolder;
+			previousHolder=current;
+		}
+		head.next=null;
+		head=current;
+		return head;
+	}
+	
+	//function to reverse Linked List (recommended)
+	public static Node reverse(Node head) {
+		Node curr=head;
+		Node next,prev=null;
+		while(curr!=null) {
+			next=curr.next;
+			curr.next=prev;
+			prev=curr;
+			curr=next;
+		}
+		return prev;
 	}
 	
 	public static void main(String[] args) {
@@ -113,6 +145,14 @@ public class SingleLinkedList {
 		head=deleteAtPosition(head,1);
 		head=deleteAtPosition(head,2);
 		
+		printList(head);
+		
+		
+		head=reverseLinkedList(head);
+		System.out.println("Reversed Linked List is");
+		printList(head);
+		
+		head=reverse(head);
 		printList(head);
 	}
 	
