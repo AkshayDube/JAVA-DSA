@@ -73,7 +73,17 @@ public class SingleLinkedList {
 		return head;
 	}
 	
-	
+	public static Node deleteAtPosition(Node head,int position) {
+		if(position==1)
+			return head.next;
+		Node temp=head;
+		for(int i=0;(i<position-2)&&(temp!=null);i++)
+			temp=temp.next;
+		if(temp==null || position<1)
+			return head;
+		temp.next=temp.next.next;
+		return head;
+	}
 	
 	public static void main(String[] args) {
 		Node head=insertBegin(null, 10);
@@ -97,6 +107,11 @@ public class SingleLinkedList {
 		head=insertAtPosition(head, 2, 20);
 		head=insertAtPosition(head, 3, 30);
 		head=insertAtPosition(head, 7, 100);
+		
+		printList(head);
+		
+		head=deleteAtPosition(head,1);
+		head=deleteAtPosition(head,2);
 		
 		printList(head);
 	}
