@@ -57,6 +57,24 @@ public class SingleLinkedList {
 		return head;
 	}
 
+	//function to insert an element at the specified position
+	public static Node insertAtPosition(Node head,int position,int data) {
+		Node newNode=new Node(data);
+		if(position==1) {
+			newNode.next=head;
+			return newNode;
+		}
+		Node temp=head;
+		for(int i=0;(i<position-2)&&(temp!=null);i++) {
+			temp=temp.next;
+		}
+		newNode.next=temp.next;
+		temp.next=newNode;
+		return head;
+	}
+	
+	
+	
 	public static void main(String[] args) {
 		Node head=insertBegin(null, 10);
 		head=insertLast(head, 20);
@@ -72,6 +90,13 @@ public class SingleLinkedList {
 		
 		head=deleteHead(head);
 		head=deleteLast(head);
+		
+		printList(head);
+		
+		head=insertAtPosition(head, 1, 10);
+		head=insertAtPosition(head, 2, 20);
+		head=insertAtPosition(head, 3, 30);
+		head=insertAtPosition(head, 7, 100);
 		
 		printList(head);
 	}
